@@ -36,13 +36,13 @@
             <!--App.GameWeekController -->
             <h2>Games For Week {{ weekNumber }}</h2>
             <ul class="gamesList">
-                {{#each games }}
+                {{#each games itemController="game"}}
+                <!--App.GameController -->
 
                     <li class="game">
                         {{ partial "visitingTeam" }}
                         <span>AT</span>
-                        <span>{{ homeTeam.team.name }}</span>
-                        {{view Ember.Checkbox checkedBinding="homeTeam.isSelected" nameBinding="homeTeam.team.id"}}
+                        {{ partial "homeTeam" }}
                     </li>
 
                 {{else}}
@@ -52,8 +52,23 @@
         </script>
 
         <script type="text/x-handlebars" data-template-name="_visitingTeam">
-            {{view Ember.Checkbox checkedBinding="visitingTeam.isSelected" nameBinding="visitingTeam.team.id"}}
-            <span>{{ visitingTeam.team.name }}</span>
+            <span>{{view Ember.Checkbox checkedBinding="isVisitingTeamSelected" nameBinding="visitingTeam.id"}}</span>
+            <span>{{ visitingTeam.name }}</span>
+            <span>
+                {{#unless isVisitingTeamFavored}}
+                    {{ spread }}
+                {{/unless}}
+            </span>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="_homeTeam">
+            <span>{{ homeTeam.name }}</span>
+            <span>
+                {{#if isVisitingTeamFavored}}
+                    {{ spread }}
+                {{/if}}
+            </span>
+            <span>{{view Ember.Checkbox checkedBinding="isHomeTeamSelected" nameBinding="homeTeam.id"}}</span>
         </script>
 
 
@@ -75,14 +90,11 @@
         <script src="js/model/game_week.js"></script>
         <script src="js/model/game.js"></script>
         <script src="js/model/team.js"></script>
-        <script src="js/model/team_wrapper.js"></script>
 
         <!-- Controllers -->
         <script src="js/controllers/gameweeks_controller.js"></script>
         <script src="js/controllers/gameweek_controller.js"></script>
         <script src="js/controllers/game_controller.js"></script>
-        <!-- Views -->
-        <script src="js/view/game.js"></script>
 
         <script src="js/libs/fixture.js"></script>
 

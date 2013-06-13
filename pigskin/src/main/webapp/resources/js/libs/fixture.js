@@ -23,13 +23,16 @@ App.Game.FIXTURES = [
         id: 100,
         homeTeam: 200,
         visitingTeam: 201,
-        spread: -7
+        favoredTeam: 200,
+        spread: -7,
+        selectedTeam: 200
     },
 
     {
         id: 101,
         homeTeam: 202,
         visitingTeam: 203,
+        favoredTeam: 203,
         spread: -5
     },
 
@@ -37,6 +40,7 @@ App.Game.FIXTURES = [
         id: 102,
         homeTeam: 204,
         visitingTeam: 205,
+        favoredTeam: 204,
         spread: -3
     },
 
@@ -44,6 +48,7 @@ App.Game.FIXTURES = [
         id: 103,
         homeTeam: 206,
         visitingTeam: 207,
+        favoredTeam: 207,
         spread: -7
     },
 
@@ -51,6 +56,7 @@ App.Game.FIXTURES = [
         id: 104,
         homeTeam: 208,
         visitingTeam: 209,
+        favoredTeam: 208,
         spread: -1.5
     },
 
@@ -58,158 +64,74 @@ App.Game.FIXTURES = [
         id: 105,
         homeTeam: 210,
         visitingTeam: 211,
+        favoredTeam: 211,
+        selectedTeam: 211,
         spread: -7
-    }
-];
-
-App.TeamWrapper.FIXTURES = [
-    {
-        id: 200,
-        team: 300,
-        isSelected: true,
-        isFavored: true
-    },
-
-    {
-        id: 201,
-        team: 301,
-        isSelected: false,
-        isFavored: false
-    },
-
-    {
-        id: 202,
-        team: 302,
-        isSelected: false,
-        isFavored: false
-    },
-
-    {
-        id: 203,
-        team: 303,
-        isSelected: false,
-        isFavored: true
-    },
-
-    {
-        id: 204,
-        team: 304,
-        isSelected: false,
-        isFavored: false
-    },
-
-    {
-        id: 205,
-        team: 305,
-        isSelected: false,
-        isFavored: true
-    },
-
-    {
-        id: 206,
-        team: 306,
-        isSelected: true,
-        isFavored: false
-    },
-
-    {
-        id: 207,
-        team: 307,
-        isSelected: false,
-        isFavored: true
-    },
-
-    {
-        id: 208,
-        team: 308,
-        isSelected: false,
-        isFavored: true
-    },
-
-    {
-        id: 209,
-        team: 309,
-        isSelected: false,
-        isFavored: false
-    },
-
-    {
-        id: 210,
-        team: 310,
-        isSelected: false,
-        isFavored: false
-    },
-
-    {
-        id: 211,
-        team: 311,
-        isSelected: false,
-        isFavored: true
     }
 ];
 
 App.Team.FIXTURES = [
     {
-        id: 300,
+        id: 200,
         name: 'NY Giants',
         logo: null
     },
 
     {
-        id: 301,
+        id: 201,
         name: 'Dallas Cowboys',
         logo: null
     },
 
     {
-        id: 302,
+        id: 202,
         name: 'Philadelphia Eagles',
         logo: null
     },
 
     {
-        id: 303,
+        id: 203,
         name: 'Washing Redskins',
         logo: null
     },
 
     {
-        id: 304,
+        id: 204,
         name: 'New England Patriots',
         logo: null
     },
     {
-        id: 305,
+        id: 205,
         name: 'Buffalo Bills',
         logo: null
     },
     {
-        id: 306,
+        id: 206,
         name: 'New York Jets',
         logo: null
     },
     {
-        id: 307,
+        id: 207,
         name: 'Miami Dolphins',
         logo: null
     },
     {
-        id: 308,
+        id: 208,
         name: 'San Francisco 49ers',
         logo: null
     },
     {
-        id: 309,
+        id: 209,
         name: 'St. Louis Rams',
         logo: null
     },
     {
-        id: 310,
+        id: 210,
         name: 'Arizona Cardinals',
         logo: null
     },
     {
-        id: 311,
+        id: 211,
         name: 'Seattle Seahawks',
         logo: null
     }
