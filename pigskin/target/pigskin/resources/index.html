@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ember.js • Demo</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+
+        <script type="text/x-handlebars" data-template-name="gameWeeks">
+            <div class="main">
+                <div class="gameWeeksContainer left">
+                    <!-- This should be a view -->
+                    <h2>Game Week</h2>
+                    <ul class="gameWeeksList">
+                        {{#each gameWeek in controller}}
+                        <li class="gameWeeksNumber">
+                            {{#linkTo "gameWeek" gameWeek class="linkWeek"}} Week {{ gameWeek.weekNumber }} {{/linkTo}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="gameWeekContainer left">
+                    {{ outlet }}
+                </div>
+            </div>
+
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="gameWeeks/index">
+            <h2>Please select a week</h2>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="gameWeek">
+            <!--App.GameWeekController -->
+            <h2>Games For Week {{ weekNumber }}</h2>
+            <ul class="gamesList">
+                {{#each matchUps itemController="matchUp"}}
+                <!-- App.MatchUpController -->
+                {{ view App.MatchUpView }}
+
+                <!--<li>
+                    <span>{{ visitingTeam.name }}</span>
+                    <span>AT</span>
+                    <span>{{ homeTeam.name }}</span>
+                </li>-->
+                {{else}}
+                    <li><h3>No Games</h3></li>
+                {{/each}}
+            </ul>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="matchUp">
+            <li class="matchUpItem">
+                <span>{{ view.matchUp.visitingTeam.name }}</span>
+                <span>AT</span>
+                <span>{{ view.matchUp.homeTeam.name }}</span>
+            </li>
+
+        </script>
+
+
+        <script src="js/libs/jquery.js"></script>
+        <script src="../../../src/main/webapp/resources/js/libs/handlebars.js"></script>
+        <script src="js/libs/ember.js"></script>
+        <script src="js/libs/ember-data.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/libs/router.js"></script>
+
+        <!-- Compiled templates-->
+        <script src="templates/templates.js"></script>
+
+        <!-- Models -->
+        <script src="js/model/store.js"></script>
+        <script src="js/model/game_week.js"></script>
+        <script src="js/model/match_up.js"></script>
+        <script src="js/model/team.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/gameweeks_controller.js"></script>
+        <script src="js/controllers/gameweek_controller.js"></script>
+        <script src="js/controllers/matchup_controller.js"></script>
+        <!-- Views -->
+        <script src="js/view/matchUp.js"></script>
+
+        <script src="js/libs/fixture.js"></script>
+
+    </body>
+</html>

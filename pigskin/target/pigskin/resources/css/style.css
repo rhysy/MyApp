@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+}
+
+.gamesList {
+    margin: 0;
+    padding: 0;
+}
+
+.gameWeeksContainer {
+    margin-right: 75px;
+}
+
+.gameWeekContainer {
+    border-left: 1px solid black;
+    padding-left: 75px;
+}
+
+.left {
+    float: left;
+}

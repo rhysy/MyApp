@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.poo.app</groupId>
+    <artifactId>MyApp</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>MyApp</name>
+    <url>http://maven.apache.org</url>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
+
+    <properties>
+        <tomcat.version>7.0.25</tomcat.version>
+        <handlebarsPlugin.version>0.3.0</handlebarsPlugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.unit8.maven.plugins</groupId>
+            <artifactId>handlebars-maven-plugin</artifactId>
+            <version>${handlebarsPlugin.version}</version>
+            <type>maven-plugin</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-coyote</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- TODO: Think of a better servlet context name -->
+        <finalName>pigskin</finalName>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <port>9000</port>
+                    <ajpPort>9009</ajpPort>
+                    <path>/apps</path>
+                    <contextFile>${project.basedir}/src/main/webapp/META-INF/context.xml</contextFile>
+                    <systemProperties>
+                        <user.timezone>GMT</user.timezone>
+                        <networkaddress.cache.ttl>300</networkaddress.cache.ttl>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+
+
+<!--
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warSourceExcludes>**/test/**/**</warSourceExcludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+
+            This one doesn't work since it has an old version of handlebars
+            -->
+            <plugin>
+                <groupId>net.unit8.maven.plugins</groupId>
+                <artifactId>handlebars-maven-plugin</artifactId>
+                <version>${handlebarsPlugin.version}</version>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/main/webapp/resources/templates</sourceDirectory>
+                    <outputDirectory>${project.basedir}/src/main/webapp/resources/templates</outputDirectory>
+                    <preserveHierarchy>true</preserveHierarchy>
+                    <handlebarsName>handlebars.js</handlebarsName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
