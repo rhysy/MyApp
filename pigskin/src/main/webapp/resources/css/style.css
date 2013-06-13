@@ -19,3 +19,16 @@ ul {
 .left {
     float: left;
 }
+
+.teamName {
+    width: 200px;
+}
+
+.logo {
+    height: 25px;
+    width: 40px;
+}
+
+.noSelection {
+
+}

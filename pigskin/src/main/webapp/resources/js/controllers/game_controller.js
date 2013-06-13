@@ -1,5 +1,9 @@
 App.GameController = Ember.ObjectController.extend({
 
+        hasSelection: function() {
+            return this.get('model.selectedTeam') !== null;
+        }.property('model.selectedTeam'),
+
         isHomeTeamSelected: function(key, value) {
             return this.setOrGetSelectedTeam(key ,value, 'homeTeam');
         }.property('model.selectedTeam'),
@@ -18,8 +22,13 @@ App.GameController = Ember.ObjectController.extend({
             if (value === undefined) {
                 return model.get('selectedTeam') === model.get(team);
             } else {  // setter call
-                model.set('selectedTeam', model.get(team));
-                return true;
+                if (value === true) {
+                    model.set('selectedTeam', model.get(team));
+                    return true;
+                } else {
+                    model.set('selectedTeam', null);
+                    return false;
+                }
             }
         }
 });

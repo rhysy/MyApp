@@ -74,65 +74,65 @@ App.Team.FIXTURES = [
     {
         id: 200,
         name: 'NY Giants',
-        logo: null
+        logo: 'images/nyg.png'
     },
 
     {
         id: 201,
         name: 'Dallas Cowboys',
-        logo: null
+        logo: '/images/dallas.png'
     },
 
     {
         id: 202,
         name: 'Philadelphia Eagles',
-        logo: null
+        logo: 'images/phi.png'
     },
 
     {
         id: 203,
         name: 'Washing Redskins',
-        logo: null
+        logo: 'images/was.png'
     },
 
     {
         id: 204,
         name: 'New England Patriots',
-        logo: null
+        logo: 'images/ne.png'
     },
     {
         id: 205,
         name: 'Buffalo Bills',
-        logo: null
+        logo: 'images/buf.png'
     },
     {
         id: 206,
         name: 'New York Jets',
-        logo: null
+        logo: 'images/nyj.png'
     },
     {
         id: 207,
         name: 'Miami Dolphins',
-        logo: null
+        logo: 'images/mia.png'
     },
     {
         id: 208,
         name: 'San Francisco 49ers',
-        logo: null
+        logo: 'images/sf.png'
     },
     {
         id: 209,
         name: 'St. Louis Rams',
-        logo: null
+        logo: 'images/stl.png'
     },
     {
         id: 210,
         name: 'Arizona Cardinals',
-        logo: null
+        logo: 'images/ari.png'
     },
     {
         id: 211,
         name: 'Seattle Seahawks',
-        logo: null
+        logo: 'images/sea.png'
     }
 ];
