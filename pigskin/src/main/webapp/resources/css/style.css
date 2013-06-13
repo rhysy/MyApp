@@ -20,8 +20,30 @@ ul {
     float: left;
 }
 
+.at {
+    width: 75px;
+    text-align: center;
+}
+
+.spread {
+    width: 30px;
+    text-align: center;
+}
+
+.gamesList .game:hover{
+    background-color: aliceblue;
+}
+
+.gameWeeksList .gameWeeksNumber a {
+    text-decoration:  none;
+}
+
+.gameWeeksList .gameWeeksNumber a:hover  {
+    text-decoration:  underline;
+}
+
 .teamName {
-    width: 200px;
+    padding-left: 8px;
 }
 
 .logo {
@@ -29,6 +51,6 @@ ul {
     width: 40px;
 }
 
-.noSelection {
-
+.has-selection {
+    background-color: azure;
 }

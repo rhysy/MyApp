@@ -23,9 +23,11 @@ App.GameController = Ember.ObjectController.extend({
                 return model.get('selectedTeam') === model.get(team);
             } else {  // setter call
                 if (value === true) {
+                    // checkbox checked
                     model.set('selectedTeam', model.get(team));
                     return true;
                 } else {
+                    // checkbox unchecked
                     model.set('selectedTeam', null);
                     return false;
                 }

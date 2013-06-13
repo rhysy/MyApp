@@ -35,52 +35,52 @@
         <script type="text/x-handlebars" data-template-name="gameWeek">
             <!--App.GameWeekController -->
             <h2>Games For Week {{ weekNumber }}</h2>
-            <ul class="gamesList">
+            <table class="gamesList" cellpadding="0" cellspacing="0">
                 {{#each games itemController="game"}}
                 <!--App.GameController -->
 
-                    <li {{bindAttr class=":game hasSelection::noSelection"}}>
+                    <tr {{bindAttr class=":game hasSelection"}}>
                         {{ partial "visitingTeam" }}
-                        <span>AT</span>
+                        <td class="at">AT</td>
                         {{ partial "homeTeam" }}
-                    </li>
+                    </tr>
 
                 {{else}}
-                    <li><h3>No Games</h3></li>
+                    <tr><td colspan="3"><h3>No Games</h3></td></tr>
                 {{/each}}
-            </ul>
+            </table>
         </script>
 
         <script type="text/x-handlebars" data-template-name="_visitingTeam">
-            <span>{{view Ember.Checkbox checkedBinding="isVisitingTeamSelected" nameBinding="visitingTeam.id"}}</span>
-            <span>
+            <td>{{view Ember.Checkbox checkedBinding="isVisitingTeamSelected" nameBinding="visitingTeam.id"}}</td>
+            <td>
                 {{#if visitingTeam.logo}}
                     <img class="logo" {{bindAttr src="visitingTeam.logo"}}/>
                 {{/if}}
 
-            </span>
-            <span class="teamName">{{ visitingTeam.name }}</span>
-            <span>
+            </td>
+            <td class="teamName">{{ visitingTeam.name }}</td>
+            <td class="spread">
                 {{#unless isVisitingTeamFavored}}
                     {{ spread }}
                 {{/unless}}
-            </span>
+            </td>
         </script>
 
         <script type="text/x-handlebars" data-template-name="_homeTeam">
-            <span>
+            <td>
                 {{#if homeTeam.logo}}
                 <img class="logo" {{bindAttr src="homeTeam.logo"}}/>
                 {{/if}}
 
-            </span>
-            <span class="teamName">{{ homeTeam.name }}</span>
-            <span>
+            </td>
+            <td class="teamName">{{ homeTeam.name }}</td>
+            <td class="spread">
                 {{#if isVisitingTeamFavored}}
                     {{ spread }}
                 {{/if}}
-            </span>
-            <span>{{view Ember.Checkbox checkedBinding="isHomeTeamSelected" nameBinding="homeTeam.id"}}</span>
+            </td>
+            <td>{{view Ember.Checkbox checkedBinding="isHomeTeamSelected" nameBinding="homeTeam.id"}}</td>
         </script>
 
 
