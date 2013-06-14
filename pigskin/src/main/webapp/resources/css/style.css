@@ -30,8 +30,12 @@ ul {
     text-align: center;
 }
 
-.gamesList .game:hover{
+.gamesList {
     background-color: aliceblue;
+}
+
+.gamesList .game:hover{
+    background-color: azure;
 }
 
 .gameWeeksList .gameWeeksNumber a {
@@ -51,6 +55,12 @@ ul {
     width: 40px;
 }
 
-.has-selection {
-    background-color: azure;
+.noSelection {
+    color: darkcyan;
+}
+
+.unSelectedGamesLabel {
+    text-align: right;
+    padding-bottom: 10px;
+    color: darkcyan;
 }

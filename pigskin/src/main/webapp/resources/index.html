@@ -35,20 +35,27 @@
         <script type="text/x-handlebars" data-template-name="gameWeek">
             <!--App.GameWeekController -->
             <h2>Games For Week {{ weekNumber }}</h2>
-            <table class="gamesList" cellpadding="0" cellspacing="0">
-                {{#each games itemController="game"}}
-                <!--App.GameController -->
+            {{ render "games" games }}
 
-                    <tr {{bindAttr class=":game hasSelection"}}>
-                        {{ partial "visitingTeam" }}
-                        <td class="at">AT</td>
-                        {{ partial "homeTeam" }}
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="games">
+            {{#if hasGames}}
+                <div class="unSelectedGamesLabel">
+                    <strong>{{ unselectedGames }}</strong> {{ inflection }} remaining
+                </div>
+                <table class="gamesList" cellpadding="0" cellspacing="0">
+                    {{#each controller itemController="game"}}
+                    <tr {{bindAttr class=":game hasSelection::noSelection"}}>
+                    {{ partial "visitingTeam" }}
+                    <td class="at">AT</td>
+                    {{ partial "homeTeam" }}
                     </tr>
-
-                {{else}}
-                    <tr><td colspan="3"><h3>No Games</h3></td></tr>
-                {{/each}}
-            </table>
+                    {{/each}}
+                </table>
+            {{else}}
+                <h2>No Games</h2>
+            {{/if}}
         </script>
 
         <script type="text/x-handlebars" data-template-name="_visitingTeam">
@@ -102,7 +109,7 @@
 
         <!-- Controllers -->
         <script src="js/controllers/gameweeks_controller.js"></script>
-        <script src="js/controllers/gameweek_controller.js"></script>
+        <script src="js/controllers/games_controller.js"></script>
         <script src="js/controllers/game_controller.js"></script>
 
         <script src="js/libs/fixture.js"></script>
